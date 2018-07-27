@@ -1,6 +1,5 @@
 # coding: utf-8
 require 'optparse'
-require 'json'
 
 module VagrantTtl
   
@@ -18,7 +17,6 @@ module VagrantTtl
           o.banner = "Usage: vagrant ttl"
         end
         
-        # Parse the options
         argv = parse_options(opts)
         return if !argv || !File.exists?('Vagrantfile')
         
@@ -40,12 +38,15 @@ strconcat msg ' /keyfile='
 strconcat msg keyfile
 connect msg
 EOS
-        @env.ui.info("[ \e[32mINFO\e[0m ] Generating #{name}.ttl")
-        File.open("#{name}.ttl", "wb") do |fout|
-          fout.write(macro)
+        begin 
+          @env.ui.info("[ \e[32mINFO\e[0m ] Generating #{name}.ttl")
+          File.open("#{name}.ttl", "wb") do |fout|
+            fout.write(macro)
+          end
+        rescue
+          @env.ui.info("[ \e[31mError \e[0m ] Generating #{name}.ttl")
         end
           
-        # Success, exit status 0
         0
         
       end
