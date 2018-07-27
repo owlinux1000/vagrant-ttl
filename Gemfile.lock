@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    vagrant-ttl (0.1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rake (12.3.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (>= 1.0.0)
+  rake
+  vagrant-ttl!
+
+BUNDLED WITH
+   1.16.1
