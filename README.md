@@ -1,39 +1,32 @@
-# Vagrant::Ttl
+# Vagrant TTL(TeraTermLanguage)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/vagrant/ttl`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE.txt)
 
-TODO: Delete this and the text above, and describe your gem
+## Install
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'vagrant-ttl'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install vagrant-ttl
+$ git clone https://github.com/owlinux1000/vagrant-ttl
+$ cd vagrant-ttl
+$ bundle install
+$ rake build
+$ vagrant plugin install pkg/vagrant-ttl-X.X.X.gem
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+You can only use this command in ```VAGRANT_CWD``` and while the virtual machine is running up.
+After you executed ```vagrant ttl```, can find the file named as *.ttl.
 
-## Development
+```
+$ vagrant status
+Current machine states:
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+default                   running (virtualbox)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/vagrant-ttl.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+$ vagrant ttl
+[ INFO ] Generating default.ttl
+```
